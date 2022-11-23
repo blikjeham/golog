@@ -1,15 +1,17 @@
 package main
 
-var frequency string
-var mode string
-
 type buklog struct {
-	ui userInterface
+	ui        userInterface
+	frequency string
+	mode      string
 }
 
 var app buklog
+var LogChannel = make(chan *LogEntry)
 
 func main() {
+	app.frequency = "14.250"
+	app.mode = "SSB"
 	uiInit()
 	uiRun()
 }
